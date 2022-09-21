@@ -234,8 +234,8 @@ class ForumAdmin(admin.ModelAdmin):
                 elif user:
                     # Redirect to user
                     url_kwargs = (
-                        {'forum_id': forum.id, 'user_id': user.id}
-                        if forum else {'user_id': user.id}
+                        {'forum_id': forum.id, 'user_id': user.guid}
+                        if forum else {'user_id': user.guid}
                     )
                     return redirect(
                         reverse('admin:forum_forum_editpermission_user', kwargs=url_kwargs),

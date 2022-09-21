@@ -39,7 +39,7 @@
       {% spaceless %}
       {% if not request.user.is_anonymous %}
         <a href="{% url 'forum_member:user_subscriptions' %}" class="d-inline-block ml-3"><i class="fas fa-bookmark">&nbsp;</i>{% trans "Subscriptions" %}</a>
-        <a href="{% url 'forum_member:user_posts' request.user.id %}" class="d-inline-block ml-3"><i class="fas fa-comments">&nbsp;</i>{% trans "View my posts" %}</a>
+        <a href="{% url 'forum_member:user_posts' request.user.guid %}" class="d-inline-block ml-3"><i class="fas fa-comments">&nbsp;</i>{% trans "View my posts" %}</a>
       {% endif %}
       {% get_permission 'can_access_moderation_queue' request.user as can_access_moderation_queue %}
       {% if can_access_moderation_queue %}

@@ -316,7 +316,7 @@ class PermissionHandler:
         returned.
         """
         granted_forums_cache_key = '{}__{}'.format(
-            ':'.join(perm_codenames), user.id if not user.is_anonymous else 'anonymous',
+            ':'.join(perm_codenames), user.guid if not user.is_anonymous else 'anonymous',
         )
 
         if granted_forums_cache_key in self._granted_forums_cache:
@@ -382,7 +382,7 @@ class PermissionHandler:
 
     def _get_checker(self, user):
         """ Return a ForumPermissionChecker instance for the given user. """
-        user_perm_checkers_cache_key = user.id if not user.is_anonymous else 'anonymous'
+        user_perm_checkers_cache_key = user.guid if not user.is_anonymous else 'anonymous'
 
         if user_perm_checkers_cache_key in self._user_perm_checkers_cache:
             return self._user_perm_checkers_cache[user_perm_checkers_cache_key]
